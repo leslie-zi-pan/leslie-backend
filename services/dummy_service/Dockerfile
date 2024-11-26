@@ -11,6 +11,6 @@ RUN poetry lock --no-update
 RUN poetry install --no-interaction --no-ansi --no-root
 
 WORKDIR /app/services/dummy_service
-COPY services/dummy_service/src/ src/  
+COPY services/dummy_service/dummy_service/ dummy_service/  
 
-ENTRYPOINT ["python", "src/main.py"]
+ENTRYPOINT ["python", "dummy_service/main.py"]
