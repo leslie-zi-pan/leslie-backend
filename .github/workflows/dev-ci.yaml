@@ -32,6 +32,7 @@ jobs:
         run: |
           pip install poetry
           cd services/${{ matrix.service.name }}
+          poetry env use python3.13
           poetry config virtualenvs.create false
           poetry install --no-interaction --no-ansi --no-root
           poetry run pytest 
