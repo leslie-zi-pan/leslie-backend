@@ -28,6 +28,14 @@ jobs:
       - name: Checkout
         uses: 'actions/checkout@v4'
 
+      - name: Run pytest
+        run: |
+          cd services/${{ matrix.service.name }}
+          pip install poetry
+          poetry env use python 
+          poetry install --no-interaction --no-ansi --no-root 
+          poetry run pytest 
+
       - name: Google Auth
         id: auth
         uses: 'google-github-actions/auth@v2'
