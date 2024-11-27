@@ -33,7 +33,7 @@ jobs:
           pip install poetry
           cd services/${{ matrix.service.name }}
           poetry config virtualenvs.create false
-          poetry install --no-interaction --no-ansi --no-root
+          poetry install --no-interaction --no-ansi --no-root --user
           poetry run pytest 
 
       - name: Google Auth
