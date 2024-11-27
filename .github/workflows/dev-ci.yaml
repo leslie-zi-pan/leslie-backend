@@ -28,17 +28,10 @@ jobs:
       - name: Checkout
         uses: 'actions/checkout@v4'
 
-      - name: Set up Python 3.13
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13' 
-          cache: 'poetry'
-
       - name: Run pytest
         run: |
           pip install poetry
           cd services/${{ matrix.service.name }}
-          poetry env use python
           poetry config virtualenvs.create false
           poetry install --no-interaction --no-ansi --no-root
           poetry run pytest 
