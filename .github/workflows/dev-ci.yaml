@@ -27,13 +27,14 @@ jobs:
     steps:
       - name: Checkout
         uses: 'actions/checkout@v4'
-        
+
       - name: Run pytest
         run: |
           pip install poetry
+          cd services/${{ matrix.service.name }}
           poetry config virtualenvs.create false
           poetry install --no-interaction --no-ansi --no-root
-          poetry run pytest services/dummy-service/tests
+          poetry run pytest 
 
       - name: Google Auth
         id: auth
