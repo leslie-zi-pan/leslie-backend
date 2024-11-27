@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dummy-service"
+name = "dummy-service-endpoint"
 version = "0.1.0"
 description = ""
 authors = ["leslie-zi-pan <zifeng1996@outlook.com>"]
