@@ -30,11 +30,11 @@ jobs:
 
       - name: Run pytest
         run: |
+          cd services/${{ matrix.service.name }}
           pip install poetry
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
           poetry env use python 
           poetry install --no-interaction --no-ansi --no-root 
-          poetry run pytest services/dummy-service/tests
+          poetry run pytest 
 
       - name: Google Auth
         id: auth
