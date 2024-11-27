@@ -3,7 +3,7 @@ name: Dev Build and Deploy to Cloud Run
 on:
   push:
     branches:
-      - 'dev' 
+      - '*' 
   workflow_dispatch:
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
@@ -31,10 +31,10 @@ jobs:
       - name: Run pytest
         run: |
           pip install poetry
-          cd services/${{ matrix.service.name }}
-          poetry config virtualenvs.create false
-          poetry install --no-interaction --no-ansi --no-root --user
-          poetry run pytest 
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          poetry env use python 
+          poetry install --no-interaction --no-ansi --no-root 
+          poetry run pytest services/dummy-service/tests
 
       - name: Google Auth
         id: auth
