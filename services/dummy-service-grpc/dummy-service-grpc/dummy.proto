@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service DummyService {
+  rpc ProcessData (DataRequest) returns (DataResponse) {}
+}
+
+message DataRequest {
+  string input_data = 1;
+}
+
+message DataResponse {
+  string processed_data = 1;
+}
