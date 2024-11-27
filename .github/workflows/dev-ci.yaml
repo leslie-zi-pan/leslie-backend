@@ -25,6 +25,8 @@ jobs:
             repository: sandbox
           - name: dummy-service-grpc
             repository: sandbox
+          - name: grpc-tutorial
+            repository: sandbox
 
     steps:
       - name: Checkout
